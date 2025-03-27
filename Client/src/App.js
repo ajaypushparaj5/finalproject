@@ -8,12 +8,9 @@ import Contact from "./Components/Contact/Contact";
 import Pets from "./Components/Pets/Pets";
 import AdoptForm from "./Components/AdoptForm/AdoptForm";
 import AdminLogin from "./Components/AdminPanel/AdminLogin";
-import "./App.css";
-
-// Importing SignUp and Login from src/pages
-import SignUp from "./pages/Signup";        // Correct location of SignUp component
-import Login from "./pages/Login";          // Correct location of Login component
-import UserDashboard from "./Components/UserDashboard/UserDashboard"; // User Dashboard component
+import SignUp from "./pages/SignUp"; // Import SignUp
+import Login from "./pages/Login"; // Import Login
+import UserDashboard from "./Components/UserDashboard/UserDashboard"; // User Dashboard
 
 const Layout = ({ children }) => (
   <>
@@ -27,15 +24,17 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Public Routes */}
+        {/* Default route set to Login */}
         <Route
           path="/"
           element={
             <Layout>
-              <Home description="Ensure you are fully prepared to provide proper care and attention to your pet before welcoming them into your home." />
+              <Login />
             </Layout>
           }
         />
+
+        {/* Other routes */}
         <Route
           path="/services"
           element={
@@ -87,7 +86,7 @@ const App = () => {
           }
         />
 
-        {/* User Dashboard Route (protected, will check for JWT) */}
+        {/* User Dashboard Route */}
         <Route
           path="/dashboard"
           element={

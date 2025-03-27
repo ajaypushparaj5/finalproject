@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';  // Use useNavigate instead of useHistory
+import { useHistory } from 'react-router-dom';
 
 const SignUp = () => {
     const [formData, setFormData] = useState({
@@ -10,7 +10,7 @@ const SignUp = () => {
     });
 
     const { name, email, password } = formData;
-    const navigate = useNavigate();  // Replace useHistory with useNavigate
+    const history = useHistory();
 
     const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -18,7 +18,7 @@ const SignUp = () => {
         e.preventDefault();
         try {
             await axios.post('/api/auth/signup', formData);
-            navigate('/login');  // Replace history.push with navigate
+            history.push('/login');
         } catch (err) {
             console.error(err.response.data);
         }

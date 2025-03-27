@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';  // Use useNavigate instead of useHistory
+import { useNavigate } from 'react-router-dom';  // Use useNavigate for navigation
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -9,7 +9,7 @@ const Login = () => {
     });
 
     const { email, password } = formData;
-    const navigate = useNavigate();  // Replace useHistory with useNavigate
+    const navigate = useNavigate();  // useNavigate for redirecting
 
     const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -18,7 +18,7 @@ const Login = () => {
         try {
             const res = await axios.post('/api/auth/login', formData);
             localStorage.setItem('token', res.data.token);
-            navigate('/dashboard');  // Use navigate() instead of history.push()
+            navigate('/dashboard');  // Redirect to dashboard after successful login
         } catch (err) {
             console.error(err.response.data);
         }
