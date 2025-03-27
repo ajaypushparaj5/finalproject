@@ -84,6 +84,7 @@
     justify-content: space-between;
     align-items: center;
     background: url('background.jpg') no-repeat center center/cover;
+    flex-wrap: wrap;
 }
 
 .homeContainer-left {
@@ -91,6 +92,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 20px;
 }
 
 .home-title {
@@ -114,7 +116,6 @@
     align-items: center;
 }
 
-/* Buttons */
 .Home-button {
     display: flex;
     justify-content: center;
@@ -148,6 +149,7 @@
     border-radius: 40px 50px 20px 20px;
     background-color: var(--darkGrey);
     color: var(--white);
+    flex-wrap: wrap;
 }
 
 .left-pic img {
@@ -171,7 +173,6 @@
 
 /* Card Styles */
 .card-container {
-    max-width: 25vw;
     width: 25vw;
     margin: 25px 30px;
     display: flex;
@@ -258,6 +259,11 @@
         align-items: center;
         justify-content: center;
         padding: 20px;
+    }
+
+    .card-container {
+        width: 80%;
+        margin: 20px auto;
     }
 }
 
